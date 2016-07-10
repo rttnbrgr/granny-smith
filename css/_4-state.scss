@@ -1,0 +1,19 @@
+// 
+// STATE
+// 
+
+.isHidden {
+	transform: translateY(-100%);
+	opacity: 0;	
+}
+
+// the only breakpoint
+@media (min-width: $bp) {
+	
+	// adjust main wrapper
+	.isMini { left: $modal-width; }
+
+	.isHidden { 
+		transform: translateX(-100%); 
+	}
+}

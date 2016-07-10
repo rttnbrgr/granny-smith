@@ -1,0 +1,63 @@
+.single {
+	&__wrapper {
+		position: absolute;
+		height: 102vh;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		transition: all .3s ease;		
+	}
+	&__img {
+		display: block;
+		margin: 0 auto;
+		position: relative;
+	}
+	&__avatar {
+		height: 12.5rem;
+		width: 12.5rem;
+		border-radius: 50%;
+		z-index: 3;
+	}
+	&__artwork {
+		max-width: 100%;
+		width: 500px;
+		overflow: hidden;
+		margin-top: -25%;
+		margin-bottom: -20%;
+		@media (min-width:500px) {
+			margin-top: -125px;
+			margin-bottom: -100px;
+		}
+	}
+	
+	&__button {
+		position: relative;
+		display: block;
+		font-family: monospace;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 1rem;
+		// background-color: pink;
+		font-size: 1.5rem;
+		transition: all .3s ease;
+		overflow: hidden;
+
+		&.isLoading {
+			color: rgba(0,0,0,.3);
+			&:hover {
+				cursor: wait;
+			}
+		}
+	}
+	
+	&.isMini {
+			left: 30%;
+		@media (min-width:600px) {
+		}
+		
+	}
+}

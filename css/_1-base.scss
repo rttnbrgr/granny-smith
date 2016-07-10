@@ -1,0 +1,17 @@
+// Googlfonts
+@import 'https://fonts.googleapis.com/css?family=Inconsolata|Secular+One';
+@mixin mono { font-family: 'Inconsolata', monospace; }
+@mixin sans { font-family: 'Secular One', sans-serif; }
+
+// Variables
+$yellow: #feda5f;
+
+// Box Sizing
+// apply a natural box layout model to all elements, but allowing components to change
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+
+// Typography
+a { color: inherit;	}
+img { max-width: 100%;}
+body { background-color: $yellow; }
