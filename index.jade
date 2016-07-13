@@ -22,7 +22,7 @@ html(class='no-js')
 			.single__avatar.single__img
 				img#js-avatar
 			.single__artwork.single__img
-				 img#js-artwork				
+				img#js-artwork				
 			a#js-button.single__button.isLoading(href="#") 
 				span play
 				iframe#js-iframe( height='450', scrolling='no', frameborder='no', src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/251059513&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=true')
@@ -47,7 +47,7 @@ html(class='no-js')
 
 
 script(src="script/soundmanager2.js")
-//- script(src="script/modal.js")
+script(src="script/all.js")
 script.
 	
 	// dom refs
@@ -96,18 +96,15 @@ script.
 
 			onpause: function() {
 				console.log('sm pause');
-				document.body.style.backgroundColor = 'purple'
 				buttonText.innerHTML = 'PLAY';
 				toggleTheModal();
 			},
 			onplay: function() {
 				console.log('sm play');
-				document.body.style.backgroundColor = 'pink'
 				buttonText.innerHTML = 'PAUSE';
 			},
 			onresume: function() {
 				console.log('sm onresume')
-				document.body.style.backgroundColor = 'teal'
 				buttonText.innerHTML = 'PAUSE';
 			},
 			onfinish: function() {

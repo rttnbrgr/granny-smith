@@ -9,7 +9,9 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		transition: all .3s ease;		
+		align-items: center;
+		transition: all .3s ease;	
+
 	}
 	&__img {
 		display: block;
@@ -33,7 +35,6 @@
 			margin-bottom: -100px;
 		}
 	}
-	
 	&__button {
 		position: relative;
 		display: block;
