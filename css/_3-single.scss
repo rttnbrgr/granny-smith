@@ -1,3 +1,5 @@
+$art-size: 31.25rem; // 500px
+
 .single {
 	&__wrapper {
 		position: absolute;
@@ -9,9 +11,11 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
 		transition: all .3s ease;	
-
+		
+		@media (min-width: $art-size) {
+			align-items: center;
+		}
 	}
 	&__img {
 		display: block;
@@ -25,20 +29,39 @@
 		z-index: 3;
 	}
 	&__artwork {
+		width: $art-size;
 		max-width: 100%;
-		width: 500px;
+		max-height: $art-size;
+		opacity: 1;
 		overflow: hidden;
 		margin-top: -25%;
 		margin-bottom: -20%;
-		@media (min-width:500px) {
+		transition: all 0.5s ease, opacity 0.3s linear;
+
+		@media (min-width: $art-size) {
 			margin-top: -125px;
 			margin-bottom: -100px;
 		}
 	}
+	&__button-wrapper {
+		// background-color: blue;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		
+		@media (min-width: $art-size) {
+		// @media (min-width:$bp) {
+			// background-color: dodgerblue;			
+			flex-direction: row;
+
+		}
+	}
+	
 	&__button {
 		position: relative;
 		display: block;
 		font-family: monospace;
+		@include mono;
 		text-transform: uppercase;
 		text-align: center;
 		padding: 1rem;
@@ -47,18 +70,16 @@
 		transition: all .3s ease;
 		overflow: hidden;
 
+		// @media (min-width: $bp) {
+		@media (min-width: $art-size) {
+			width: 100px;
+		}
+
 		&.isLoading {
 			color: rgba(0,0,0,.3);
 			&:hover {
 				cursor: wait;
 			}
 		}
-	}
-	
-	&.isMini {
-			left: 30%;
-		@media (min-width:600px) {
-		}
-		
-	}
+	}	
 }

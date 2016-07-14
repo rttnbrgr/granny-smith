@@ -1,0 +1,13 @@
+// JEFF - OLD WHISPY
+// TANNER
+
+.toggle {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	@include mono;
+	text-transform: uppercase;
+	font-size: 1rem;	
+	color: grey;
+	padding: 1rem 2rem 2rem 1rem;
+}

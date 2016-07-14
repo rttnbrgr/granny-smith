@@ -17,3 +17,30 @@
 		transform: translateX(-100%); 
 	}
 }
+
+.isMini {
+	.video__close {
+		transform: translateX(0);
+		padding-top: 1rem;
+	}
+}
+
+.isPlayingVideo {
+	
+	.single__artwork {
+		// transition: max-height 0.4s ease, opacity 0.2s linear;
+		// transition: all 3s ease;
+		margin: 0 auto;
+		max-height: 0%;
+		opacity: 0;
+	}
+
+	.single__video {
+		opacity: 1;
+	}
+
+	.video__wrapper {
+		padding-bottom: 56.25%; /* 16:9 */
+		padding-top: 25px;
+	}
+}

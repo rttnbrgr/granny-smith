@@ -3,8 +3,15 @@
 @mixin mono { font-family: 'Inconsolata', monospace; }
 @mixin sans { font-family: 'Secular One', sans-serif; }
 
+//
 // Variables
+//
+
+// Colors
 $yellow: #feda5f;
+// Sizes
+$bp: 769px;
+$modal-width: 400px;
 
 // Box Sizing
 // apply a natural box layout model to all elements, but allowing components to change
@@ -14,4 +21,9 @@ html { box-sizing: border-box; }
 // Typography
 a { color: inherit;	}
 img { max-width: 100%;}
-body { background-color: $yellow; }
+body { 
+	background-color: $yellow; 
+	// this was a debug style i think
+	transition: background-color .5s ease;
+
+}

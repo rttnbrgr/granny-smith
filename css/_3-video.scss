@@ -1,0 +1,61 @@
+.video {
+	padding: 0 1.5rem;
+	width: 100%;
+	max-width: 48rem;
+	// debug
+	// background-color: green;	
+
+	// state managed
+	opacity: 0;
+	
+	// the opacity of the video wrapper
+	transition: all 0.3s ease;
+
+	&__wrapper {
+		position: relative;
+		height: 0;
+		z-index: 2;
+		
+		// move this here?
+		padding: 0;
+		transition: padding .5s ease;
+		
+		// debug
+		background-color: #F06D06;
+		background-color: black;
+	}
+	
+	// little 'x' that closes the video
+	&__close {
+		top: 0;
+		right: 0;
+		position: absolute;
+		line-height: 0.8;
+		z-index: 2;
+		color: $yellow;
+		&:hover {
+			color: white;
+		}
+
+		transition: all .25s ease;
+
+		// @media (min-width: $bp) {
+		// $bp + some pixels
+		@media (min-width: 832px) {
+			// right: -3.5rem;
+			color: black;
+			transform: translateX(100%);
+			padding-top: 0;
+		}
+	}
+
+	iframe {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;		
+	}
+}
