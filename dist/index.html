@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aminé | Caroline</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+    <script src="http://code.jquery.com/jquery-1.7.2.js"></script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+  </head>
+  <body> 
+    <div id="single" class="single__wrapper isPlayingVide">
+      <div class="single__avatar single__img"><img id="js-avatar"></div>
+      <div class="single__artwork single__img"><img id="js-artwork"></div>
+      <div class="single__video video">
+        <div id="js-videoWrapper" class="video__wrapper"><a id="js-videoClose" class="close video__close">X</a>
+          <div id="js-videoTarget">					</div>
+        </div>
+      </div>
+      <div class="single__button-wrapper"><a id="js-button" href="#" class="single__button isLoading"> <span>play</span>
+          <iframe id="js-iframe" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/251059513&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=true" class="iframe--sc"></iframe></a><a id="js-videoOpen" href="https://www.youtube.com/watch?v=3j8ecF8Wt4E" class="single__button">watch</a><a href="http://apple.co/1Z2RqOg" class="single__button">buy</a></div>
+    </div>
+    <div id="js-modal" class="isHidden modal">
+      <h1 class="modal__header">thanks for listening</h1>
+      <p class="modal__text">
+         
+        This page was hacked together today for fun and is in no way associated with the artist. Check out all of <a href="https://twitter.com/heyamine" target="_blank">Aminé's</a> music at his <a href="https://soundcloud.com/heyamine/" target="_blank">Soundcloud</a> page and support PDX artists.
+      </p><a href="#" id="js-modalClose" class="modal__close">X</a>
+    </div>
+    <div id="js-modalOpen" class="toggle">info</div>
+  </body>
+</html>
+<script src="script/soundmanager2.js"></script>
+<script src="script/all.js"></script>
+<script src="script/youtube.js"></script>
