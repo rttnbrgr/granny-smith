@@ -70,17 +70,11 @@ $art-size: 31.25rem; // 500px
 		font-size: 1.5rem;
 		transition: all .3s ease;
 		overflow: hidden;
-
-		// @media (min-width: $bp) {
+		
+		// set a width for the buttons 
+		// @media (min-width: $bp) {			
 		@media (min-width: $art-size) {
 			width: 100px;
-		}
-
-		&.isLoading {
-			color: rgba(0,0,0,.3);
-			&:hover {
-				cursor: wait;
-			}
-		}
+		}		
 	}	
 }

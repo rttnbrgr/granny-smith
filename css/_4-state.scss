@@ -2,19 +2,37 @@
 // STATE
 // 
 
+// for the audio play button
+.isLoading {
+	color: rgba(0,0,0,.3);
+	&:hover { cursor: wait; }
+}
+
+// for the info modal
 .isHidden {
 	transform: translateY(-100%);
 	opacity: 0;	
+	
+	@media (min-width: $bp) {
+		transform: translateX(100%); 
+	}
 }
+
+
+
 
 // the only breakpoint
 @media (min-width: $bp) {
 	
 	// adjust main wrapper
-	.isMini { left: $modal-width; }
+	.isMini { 
+		// left: $modal-width; 
+		right: $modal-width; 
+	}
 
 	.isHidden { 
-		transform: translateX(-100%); 
+		// transform: translateX(-100%); 
+		transform: translateX(100%); 
 	}
 }
 

@@ -53,7 +53,8 @@
 
 	// move it to the left
 	@media (min-width: $bp) {
-		right: initial;
+		// right: initial;
+		left: initial;
 		width: 400px;
 		opacity: 1;
 		text-align: left;
