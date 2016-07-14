@@ -21,6 +21,8 @@ function toggleTheModal() {
 // DOM references
 //
 var button = document.getElementById('js-button');
+var audioButton = document.getElementById('js-button');
+var buttonText = button.children[0];
 var wrapper = document.getElementById('single');
 var modal = document.getElementById('js-modal');
 var modalOpen = document.getElementById('js-modalOpen');
@@ -33,8 +35,6 @@ var modalClose = document.getElementById('js-modalClose');
 var trackId = 251059513;
 var CLIENT_ID = 'e7ad18cc61078829bd889cce75510719';
 var getTrackUrl = 'https://api.soundcloud.com/tracks/' + trackId + '?client_id=' + CLIENT_ID;
-
-
 
 
 
@@ -51,7 +51,7 @@ SC.initialize({
 });	
 
 // AJAX call to the soundcloud api
-$.get(getTrackUrl).done(function(track){
+var theTrack = $.get(getTrackUrl).done(function(track){
 	console.log(track);
 	
 	// get the avi; fix string; set it to avi src
@@ -105,56 +105,14 @@ $.get(getTrackUrl).done(function(track){
 	sound.onplay
 })
 
-// 
-// handle iFrame/embed controls
-//
-var iFramePlayButton = document.getElementsByClassName('playButton')[0];
-// iFramePlayButton.addEventListener('click', function(){ 
-//   console.log('paly buttn clcijakdfjkadsf');
-// }, false)
-var iFrame = document.getElementById('js-iframe');
-iFrame.addEventListener('click', function() {
-	// this.hide();
-	console.log('iframe click');
-})
+// create the soundcloud track object
+var scTrack;
 
-// vars
-var player = SC.Widget(document.getElementById('js-iframe'));
-var button = document.getElementById('js-button');
-var buttonText = button.children[0];
-// btn click handler
-//- button.addEventListener('click', function(e) {
-//- 	e.preventDefault();
-//- 	console.log('button click');
-//- 	player.toggle();
-//- }, false);
-
-// 
-// SOUNDCLOUD EVENTS 
-//
-
-// on ready, undim the play button
-player.bind(SC.Widget.Events.READY, function() {
-	console.log('is laoding');
-	button.classList.remove('isLoading');
+// get the object
+$.get(getTrackUrl).done(function(track){
+	scTrack = track;
 });
 
-// on play
-//- player.bind(SC.Widget.Events.PLAY, function(e){
-//- 	console.log('play');
-//- 	buttonText.innerHTML = 'PAUSE';
-//- });
-
-// on pause
-//- player.bind(SC.Widget.Events.PAUSE, function(e){
-//- 	console.log('pause');
-//- 	buttonText.innerHTML = 'PLAY';
-//- });
-
-// on finish
-//- player.bind(SC.Widget.Events.FINISH, function() {
-//- 	document.getElementById('finished').classList.remove('isHidden');
-//- });
 
 
 //
