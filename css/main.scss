@@ -9,3 +9,33 @@
 @import '4-state';
 // remove eventually
 @import 'shame';
+
+@keyframes spin {
+	0% {
+		transform-origin: center;
+		transform: rotate(0deg);
+	}
+	100% {
+		transform-origin: center;
+		transform: rotate(360deg);	
+	}
+}
+
+@keyframes pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: .3; }
+}
+
+.a--spin {
+	animation: spin 4s infinite;
+	animation-timing-function: linear;
+}
+
+.a--pulse {
+	animation: pulse 2s infinite;
+	// animation-timing-function: linear;
+}
+
+.shadow {
+	box-shadow: 0px 4px 4px rgba(0,0,0,.5);
+}
