@@ -17,25 +17,36 @@ function toggleTheModal() {
 	modalIsHidden ? openTheModal() : closeTheModal() ;
 }
 
+function setAvi(scObject, target) {
+	var avatarURL = scObject.user.avatar_url.replace('-large', '-t200x200');
+	target.src = avatarURL;
+}
+function setArt(scObject, target) {
+	var artworkURL = scObject.artwork_url.replace('-large', '-t500x500');
+	target.src = artworkURL;
+}
+
 //
 // DOM references
 //
 var button = document.getElementById('js-button');
 var audioButton = document.getElementById('js-button');
 var buttonText = button.children[0];
-var wrapper = document.getElementById('single');
+// modal
 var modal = document.getElementById('js-modal');
 var modalOpen = document.getElementById('js-modalOpen');
 var modalClose = document.getElementById('js-modalClose');
-
+// single stuff
+var wrapper = document.getElementById('single');
+var singleAvi = document.getElementById('js-avatar');
+var singleArtwork = document.getElementById('js-artwork');
 
 //
 // SOUNDCLOUD STRINGS
 //
-var trackId = 251059513;
+var trackId = 251059513; // caroline by aminé
 var CLIENT_ID = 'e7ad18cc61078829bd889cce75510719';
 var getTrackUrl = 'https://api.soundcloud.com/tracks/' + trackId + '?client_id=' + CLIENT_ID;
-
 
 
 //
@@ -43,6 +54,7 @@ var getTrackUrl = 'https://api.soundcloud.com/tracks/' + trackId + '?client_id='
 //
 soundManager.onready(function() {		
 	console.log('sm ready'); // SM2 is ready to go! 
+	audioButton.classList.remove('isLoading');
 });
 
 // Initialize SDK
@@ -50,20 +62,19 @@ SC.initialize({
 	client_id: CLIENT_ID
 });	
 
+// create the soundcloud track object
+var scTrack;
+
 // AJAX call to the soundcloud api
 var theTrack = $.get(getTrackUrl).done(function(track){
-	console.log(track);
 	
-	// get the avi; fix string; set it to avi src
-	var avi = track.user.avatar_url;
-	var avatarURL = avi.replace('-large', '-t200x200');
-	document.getElementById('js-avatar').src = avatarURL;
-	
-	// do the same w/ artwork
-	var art = track.artwork_url;
-	var artworkURL = art.replace('-large', '-t500x500');
-	document.getElementById('js-artwork').src = artworkURL;
-	
+	// save the object
+	scTrack = track;
+
+	// set the artwork and avi
+	setAvi(track, singleAvi);
+	setArt(track, singleArtwork);
+			
 	// Setup the sound && addEventListeners
 	var sound = soundManager.createSound({
 		id: 'caroline',
@@ -88,6 +99,17 @@ var theTrack = $.get(getTrackUrl).done(function(track){
 			//- document.getElementById('finished').classList.remove('isHidden');
 			toggleTheModal();
 		},
+		onload: function() {
+			document.getElementById('js-avatar').classList.remove('a--pulse');
+			document.getElementById('js-avatar').classList.add('a--spin');
+		},
+		whileloading: function() {
+			// document.body.style.backgroundColor = "teal"
+		},
+		whileplaying: function() {
+			// document.body.style.backgroundColor = "orange"
+			// document.getElementById('js-avatar').classList.add('a--spin')
+		}
 	});		
 	
 	// add play/pause button
@@ -95,24 +117,14 @@ var theTrack = $.get(getTrackUrl).done(function(track){
 		e.preventDefault();
 		console.log('new button click');
 		
+		document.getElementById('js-avatar').classList.add('a--pulse')
 		sound.togglePause();
 		//- sound.togglePause();			
 		//- soundManager.togglePause('caroline', {})
 		//- document.getElementById('test-button').
 
-	}, false);		
-
-	sound.onplay
+	}, false);
 })
-
-// create the soundcloud track object
-var scTrack;
-
-// get the object
-$.get(getTrackUrl).done(function(track){
-	scTrack = track;
-});
-
 
 
 //
