@@ -8,42 +8,39 @@
 	&:hover { cursor: wait; }
 }
 
+
 // for the info modal
 .isHidden {
 	transform: translateY(-100%);
 	opacity: 0;	
 	
 	@media (min-width: $bp) {
+		// for left aligned
+
+		// for right aligned
 		transform: translateX(100%); 
 	}
 }
 
 
-
-
-// the only breakpoint
-@media (min-width: $bp) {
-	
-	// adjust main wrapper
-	.isMini { 
-		// left: $modal-width; 
-		right: $modal-width; 
-	}
-
-	.isHidden { 
-		// transform: translateX(-100%); 
-		transform: translateX(100%); 
-	}
-}
-
+// single class when info is visible
 .isMini {
+	
+	// do nothing to single @ mobile
+
 	.video__close {
 		transform: translateX(0);
 		padding-top: 1rem;
 		color: $yellow;
 	}
+	
+	@media (min-width: $bp) {
+		right: $modal-width;
+	}
 }
 
+
+// when the video is playing
 .isPlayingVideo {
 	
 	.single__artwork {
@@ -63,3 +60,7 @@
 		padding-top: 25px;
 	}
 }
+
+// not in use
+// for when the song is playing
+.isPlayingAudio {}
